@@ -1,8 +1,15 @@
 name: Deployment
 on: workflow_dispatch
+  inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - Bayer
+        - Capgemini
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Output
-        run: echo "Hello World!"
+        run: echo "Hello ${{ github.event.inputs.name }}"
