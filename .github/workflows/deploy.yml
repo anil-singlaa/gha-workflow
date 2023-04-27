@@ -6,8 +6,8 @@ on:
           type: choice
           description: Who to greet
           options: 
-          - Bayer
-          - Capgemini
+          - Google
+          - Amazon
         environment:
           type: environment
 jobs:
