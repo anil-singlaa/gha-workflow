@@ -8,9 +8,18 @@ on:
           options: 
           - Bayer
           - Capgemini
+        environment:
+          type: environment
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}    
     steps:
       - name: Output
         run: echo "Hello ${{ github.event.inputs.name }}"
+      - name : Accessing github settings variable
+        run :  |
+          echo "Environment USER ID: ${{ vars.USER_ID }}"
+      - name : Accessing github secret variable
+        run : |
+          echo "Environment USER Secrets: ${{ secrets.USER_PASSWORD }}"
